@@ -1,0 +1,14 @@
+skull.png
+size:177,94
+filter:Linear,Linear
+pma:true
+scale:0.5
+1
+bounds:104,2,50,43
+offsets:1,0,51,44
+2
+bounds:104,47,71,45
+offsets:0,0,75,45
+3
+bounds:2,2,100,90
+offsets:1,6,102,97
