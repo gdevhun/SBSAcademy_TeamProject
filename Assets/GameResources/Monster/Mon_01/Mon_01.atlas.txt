@@ -1,0 +1,11 @@
+Mon_01.png
+size:143,99
+filter:Linear,Linear
+pma:true
+scale:0.3
+body
+bounds:2,2,119,95
+horn1
+bounds:123,66,18,31
+horn2
+bounds:123,34,17,30

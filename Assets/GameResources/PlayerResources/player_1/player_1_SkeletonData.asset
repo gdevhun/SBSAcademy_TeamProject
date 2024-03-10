@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
-  m_Name: skull_SkeletonData
+  m_Name: player_1_SkeletonData
   m_EditorClassIdentifier: 
   atlasAssets:
-  - {fileID: 11400000, guid: e8767415746daa14c89980208e6d29d9, type: 2}
-  scale: 0.01
-  skeletonJSON: {fileID: 4900000, guid: 7d52f2e3df6042d4eb17043e3db874e5, type: 3}
+  - {fileID: 11400000, guid: 53b3fa6d4fa52074a9fe0ef667a95041, type: 2}
+  scale: 0.015
+  skeletonJSON: {fileID: 4900000, guid: 1336bd264b9aca14e89908f781aeed77, type: 3}
   isUpgradingBlendModeMaterials: 0
   blendModeMaterials:
     requiresBlendModeMaterials: 0
@@ -28,4 +28,4 @@ MonoBehaviour:
   toAnimation: []
   duration: []
   defaultMix: 0.2
-  controller: {fileID: 0}
+  controller: {fileID: 9100000, guid: a41a999a931555d4189c52f70291dc0f, type: 2}
