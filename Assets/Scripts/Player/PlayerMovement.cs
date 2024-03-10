@@ -7,27 +7,25 @@ public class PlayerMovement : MonoBehaviour
 {
 	[SerializeField] private float playerSpeed;
 	[SerializeField] private Vector2 inputVec;
-	private Rigidbody2D rigid;
-	private Animator anim;
+	private Rigidbody2D _rigid;
+	private Animator _anim;
 	public SkeletonAnimation skeletonAnimation;
-	public Spine.AnimationState spineAnimationState;
-	public Spine.Skeleton skeleton;
+	private Spine.AnimationState _spineAnimationState;
 	[SpineAnimation] public string runAnimationName;
-	[SpineAnimation] public string idleAnimaitonName;
+	[SpineAnimation] public string idleAnimationName;
 	[SpineAnimation] public string startAnimationName;
 	[SpineAnimation] public string deadAnimationName;
 	[SpineAnimation] public string hitAnimationName;
 
 	private void Awake()
 	{
-		rigid = GetComponent<Rigidbody2D>();
-		anim = GetComponent<Animator>();
+		_rigid = GetComponent<Rigidbody2D>();
+		_anim = GetComponent<Animator>();
 	}
 	private void Start()
 	{
 		skeletonAnimation = GetComponentInChildren<SkeletonAnimation>();
-		spineAnimationState = skeletonAnimation.AnimationState;
-		skeleton = skeletonAnimation.Skeleton;
+		_spineAnimationState = skeletonAnimation.AnimationState;
 
 		PlayAnimation("start", true);
 	}
@@ -60,14 +58,14 @@ public class PlayerMovement : MonoBehaviour
 	{
 
 		Vector2 nextVec = inputVec * playerSpeed * Time.fixedDeltaTime;
-		rigid.MovePosition(rigid.position + nextVec);
+		_rigid.MovePosition(_rigid.position + nextVec);
 	}
 	void PlayAnimation(string animationName, bool loop)
 	{
 		// 현재 재생 중인 애니메이션이 이미 지정된 애니메이션이면 재생하지 않음
-		if (spineAnimationState.GetCurrent(0) == null || spineAnimationState.GetCurrent(0).Animation.Name != animationName)
+		if (_spineAnimationState.GetCurrent(0) == null || _spineAnimationState.GetCurrent(0).Animation.Name != animationName)
 		{
-			spineAnimationState.SetAnimation(0, animationName, loop);
+			_spineAnimationState.SetAnimation(0, animationName, loop);
 		}
 	}
 	public void PlayHitAnimation()

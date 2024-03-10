@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Reposition : MonoBehaviour
 {
-    private void OnTriggerExit2D(Collider2D other)
+	private void Start()
+	{
+        GameManager.Instance.FindPlayer();
+	}
+	private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Area"))
         {
@@ -39,9 +43,10 @@ public class Reposition : MonoBehaviour
                     transform.Translate(Vector3.up * dirY * 40);
                 }
                 break;
-                /*Vector3 diffPos = playerPos - transform.position;
+            case "Enemy":
+                Vector3 diffPos = playerPos - transform.position;
                 transform.Translate(diffPos*2);
-                break;*/
+                break;
         }
     }
 }
