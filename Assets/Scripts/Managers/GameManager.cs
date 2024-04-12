@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : SingletonBehaviour<GameManager>
 {
 	public GameObject Player;
-	private string selectedStageName; // »ç¿ëÀÚ°¡ ´©¸¥ ½ºÅ×ÀÌÁö ´ã´Â º¯¼ö
+	private string selectedStageName; // ì‚¬ìš©ìê°€ ëˆ„ë¥¸ ìŠ¤í…Œì´ì§€ ë‹´ëŠ” ë³€ìˆ˜
 	public StageData stageData;
 	public bool isGameOver;
 	void Start()
@@ -30,13 +30,13 @@ public class GameManager : SingletonBehaviour<GameManager>
 
 		if (stageData != null)
 		{
-			// ·Îµå ¼º°ø
+			// ë¡œë“œ ì„±ê³µ
 			Debug.Log("StageData loaded successfully.");
 			Debug.Log(stageData.stageSpawnNum);
 		}
 		else
 		{
-			// ·Îµå ½ÇÆĞ
+			// ë¡œë“œ ì‹¤íŒ¨
 			Debug.LogError($"Failed to load StageData for {selectedStageName}.");
 		}
 	}

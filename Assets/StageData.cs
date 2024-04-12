@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StageData", menuName = "StageData", order = 1)]
 public class StageData : ScriptableObject
 {
-    public string stageInfo;  //½ºÅ×ÀÌÁöÁ¤º¸
-    public int stageSpawnInteval;  //°¢ ½ºÅ×ÀÌÁö°¡ °¡Áø ½ºÆù°£°İ
-    public int stageSpawnNum;  //½ºÆù È½¼ö
+    public string stageInfo;  //ìŠ¤í…Œì´ì§€ì •ë³´
+    public int stageSpawnInteval;  //ê° ìŠ¤í…Œì´ì§€ê°€ ê°€ì§„ ìŠ¤í°ê°„ê²©
+    public int stageSpawnNum;  //ìŠ¤í° íšŸìˆ˜
 }
