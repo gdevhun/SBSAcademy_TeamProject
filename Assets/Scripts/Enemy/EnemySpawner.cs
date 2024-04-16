@@ -47,7 +47,7 @@ public class EnemySpawner : SingletonBehaviour<EnemySpawner>
 			await UniTask.Delay(TimeSpan.FromSeconds(3),
 				cancellationToken:this.GetCancellationTokenOnDestroy());
 			//GetCancellationTokenOnDestroy ->    
-			//플레이어가 죽으면 에네미 스포너를 꼭 삭제해야함. 그래야 스폰이중지됨.
+			//플레이어가 죽으면 토큰을 꼭 삭제해야함. 그래야 스폰이중지됨.
 		}
 
 		await UniTask.Delay(TimeSpan.FromSeconds(5));

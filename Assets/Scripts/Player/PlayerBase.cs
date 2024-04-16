@@ -3,34 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Spine.Unity;
-public class PlayerMovement : MonoBehaviour
+public abstract class PlayerBase : MonoBehaviour
 {
 	[SerializeField] private float playerSpeed;
 	[SerializeField] private Vector2 inputVec;
 	private Rigidbody2D _rigid;
-	private Animator _anim;
 	public SkeletonAnimation skeletonAnimation;
 	private Spine.AnimationState _spineAnimationState;
-	[SpineAnimation] public string runAnimationName;
-	[SpineAnimation] public string idleAnimationName;
-	[SpineAnimation] public string startAnimationName;
-	[SpineAnimation] public string deadAnimationName;
-	[SpineAnimation] public string hitAnimationName;
-
-	private void Awake()
+	protected Transform PlayerTrans;
+	protected virtual void Awake()
 	{
 		_rigid = GetComponent<Rigidbody2D>();
-		_anim = GetComponent<Animator>();
-	}
-	private void Start()
-	{
 		skeletonAnimation = GetComponentInChildren<SkeletonAnimation>();
 		_spineAnimationState = skeletonAnimation.AnimationState;
-
-		PlayAnimation("start", true);
+	}
+	protected virtual void Start()
+	{
+		PlayerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+		PlayAnimation("start", false);
 	}
 
-	private void Update()
+	protected virtual void Update()
 	{
 		if (inputVec.x != 0)
 		{
@@ -54,33 +47,36 @@ public class PlayerMovement : MonoBehaviour
 		}
 		
 	}
-	private void FixedUpdate()
+	protected virtual void FixedUpdate()
 	{
-
 		Vector2 nextVec = inputVec * playerSpeed * Time.fixedDeltaTime;
 		_rigid.MovePosition(_rigid.position + nextVec);
 	}
-	void PlayAnimation(string animationName, bool loop)
+	private void PlayAnimation(string animationName, bool loop)
 	{
 		// 현재 재생 중인 애니메이션이 이미 지정된 애니메이션이면 재생하지 않음
-		if (_spineAnimationState.GetCurrent(0) == null || _spineAnimationState.GetCurrent(0).Animation.Name != animationName)
+		if (_spineAnimationState.GetCurrent(0) == null || 
+		    _spineAnimationState.GetCurrent(0).Animation.Name != animationName)
 		{
 			_spineAnimationState.SetAnimation(0, animationName, loop);
 		}
 	}
-	public void PlayHitAnimation()
+	protected void PlayHitAnimation()
 	{
 		PlayAnimation("hurt", false);
 	}
 
-	public void PlayDeadAnimation()
+	protected void PlayDeadAnimation()
 	{
 		PlayAnimation("die", false);
 	}
 
 
-	private void OnMove(InputValue value)
+	protected void OnMove(InputValue value)
 	{
 		inputVec = value.Get<Vector2>();
 	}
+
+	protected abstract void CharSkill();
+
 }

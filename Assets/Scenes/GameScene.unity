@@ -14093,8 +14093,8 @@ GameObject:
   - component: {fileID: 1524498887}
   - component: {fileID: 1524498889}
   - component: {fileID: 1524498888}
-  - component: {fileID: 1524498891}
   - component: {fileID: 1524498892}
+  - component: {fileID: 1524498893}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -14177,26 +14177,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1524498891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524498886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e046b88373021d459d162c60aa096d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 4
-  inputVec: {x: 0, y: 0}
-  skeletonAnimation: {fileID: 1605114644}
-  runAnimationName: run
-  idleAnimationName: idle
-  startAnimationName: start
-  deadAnimationName: die
-  hitAnimationName: hurt
 --- !u!70 &1524498892
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -14232,6 +14212,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.039609253, y: 0.6601543}
   m_Size: {x: 0.5792185, y: 1.3344783}
   m_Direction: 0
+--- !u!114 &1524498893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524498886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c111947ee80f835499d8df9695080189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 3
+  inputVec: {x: 0, y: 0}
+  skeletonAnimation: {fileID: 0}
 --- !u!1 &1605114642
 GameObject:
   m_ObjectHideFlags: 0
@@ -14303,7 +14298,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: 
+  _animationName: start
   loop: 1
   timeScale: 1
 --- !u!23 &1605114645
@@ -19310,11 +19305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8154682323023468189, guid: 6362472dca4df9040a227dfcf363d5a3, type: 3}
       propertyPath: m_Name
-      value: Weapon_Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 8154682323023468189, guid: 6362472dca4df9040a227dfcf363d5a3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Weapon_Charm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

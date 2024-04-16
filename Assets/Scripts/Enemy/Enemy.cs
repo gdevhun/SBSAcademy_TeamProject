@@ -6,20 +6,21 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private Transform targetTransform;
-	[SerializeField] private float moveSpeed;
-	[SerializeField] private float attackDamage;
+	[SerializeField] private int moveSpeed;
+	[SerializeField] private int attackDamage;
+	[SerializeField] private int hp;
 	void Start()
     {
 		targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
 	}
-
-    // Update is called once per frame
+	
     void Update()
     {
 		if (GameManager.Instance.isGameOver)
 		{
 			return;
 		}
+
 		Vector3 moveTo = (targetTransform.position - transform.position).normalized;
 		transform.position += moveTo * moveSpeed * Time.deltaTime;
 
@@ -37,4 +38,14 @@ public class Enemy : MonoBehaviour
 
 		}
 	}
+
+    public void EnemyDamaged(int dmg)
+    {
+	    hp -= dmg;
+	    if(hp <= 0)
+	    {
+		    hp = 0;
+		    this.gameObject.SetActive(false);
+	    }
+    }
 }
