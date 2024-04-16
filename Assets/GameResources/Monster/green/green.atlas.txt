@@ -1,0 +1,14 @@
+green.png
+size:261,187
+filter:Linear,Linear
+pma:true
+body
+bounds:2,2,183,217
+offsets:1,1,186,220
+rotate:90
+leg1
+bounds:221,99,38,40
+offsets:1,1,40,42
+leg2
+bounds:221,141,37,44
+offsets:1,1,39,46
