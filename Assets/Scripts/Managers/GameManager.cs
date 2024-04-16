@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
-	public GameObject Player;
-	private string selectedStageName; // 사용자가 누른 스테이지 담는 변수
+	public GameObject player;
+	private string _selectedStageName; // 사용자가 누른 스테이지 담는 변수
 	public StageData stageData;
 	public bool isGameOver;
 	void Start()
@@ -16,17 +16,17 @@ public class GameManager : SingletonBehaviour<GameManager>
 	}
 	public void FindPlayer()
 	{
-		Player = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 	public void OnStageButtonClick(string stageName)
 	{
-		selectedStageName = stageName;
+		_selectedStageName = stageName;
 		LoadSelectedStage();
 	}
 
 	private void LoadSelectedStage()
 	{
-		stageData = Resources.Load<StageData>(selectedStageName);
+		stageData = Resources.Load<StageData>(_selectedStageName);
 
 		if (stageData != null)
 		{
@@ -37,7 +37,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 		else
 		{
 			// 로드 실패
-			Debug.LogError($"Failed to load StageData for {selectedStageName}.");
+			Debug.LogError($"Failed to load StageData for {_selectedStageName}.");
 		}
 	}
 }

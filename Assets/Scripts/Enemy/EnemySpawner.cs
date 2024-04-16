@@ -1,31 +1,21 @@
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : SingletonBehaviour<EnemySpawner>
 {
-	private static EnemySpawner _instance = null;
-	
     //게임메니저로부터 스테이지의 정보를 얻어온다.
 	[SerializeField] private int spawnInterval;
     [SerializeField] private int spawnEnemyCntPerInterval;
 	[SerializeField] private Transform[] spawnPoints;
-	private CancellationTokenSource _spawnCancelToken;
-	private void Awake()
+	private CancellationTokenSource _spawnCancelToken; //스폰중지토큰
+	
+	protected override void Awake()
 	{
-		//각스테이지별로 에니미스포너 생성, 초기화
-		if(_instance == null)
-		{
-			_instance= this;
-		}
-		else if (_instance != this)
-		{
-			Destroy(this);
-		}
+		base.Awake();
 		
+		//각스테이지별로 에니미스포너 생성, 초기화
 		spawnInterval = GameManager.Instance.stageData.stageSpawnInteval;
 		//한 스테이지에 호출될 에네미 인터벌 총 횟수.
 		spawnEnemyCntPerInterval = GameManager.Instance.stageData.stageSpawnInteval;
@@ -65,9 +55,9 @@ public class EnemySpawner : MonoBehaviour
 
 	private void SpawnEnemy()
 	{
-		int spawnPointIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
-		int enemyIndex = UnityEngine.Random.Range(0, 2); //0~1
-		GameObject enemy = EnemyPoolManager._instance.GetEnemies(enemyIndex);
+		int spawnPointIndex = UnityEngine.Random.Range(0, spawnPoints.Length); //임의 에네미 스폰포인트
+		//int enemyIndex = UnityEngine.Random.Range(0, 2); //0~1
+		GameObject enemy = EnemyPoolManager.Instance.GetEnemy(EnemyPoolManager.EnemyType.Green);
 		enemy.gameObject.transform.SetPositionAndRotation(spawnPoints[spawnPointIndex].position,
 			Quaternion.identity);
 	}

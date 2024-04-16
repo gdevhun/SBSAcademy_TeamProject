@@ -1,28 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine.Editor;
 using UnityEngine;
 
-public class EnemyPoolManager : MonoBehaviour
+public class EnemyPoolManager : SingletonBehaviour<EnemyPoolManager>
 {
-	public GameObject[] enemiesPrefabs; 
-	List<GameObject>[] enemiesPool;
-	public static EnemyPoolManager _instance;
-	private void Awake()
+	#region 에네미 관련 매핑을 위한 클래스
+	public enum EnemyType
 	{
-		if (_instance == null)
-		{
-			_instance = this;
-		}
-		else
-		{
-			Destroy(gameObject);
-			return;
-		}
+		Red, Green, Skull
+	}
+	[System.Serializable]
+	public class EnemyPrefab //에네미프리팹은 에네미타입을 변수로 소유
+	{
+		public EnemyType type;
+		public GameObject prefab;
+	}
+	#endregion
+	
+	
+	public List<EnemyPrefab> enemyPrefabs; //에네미프리팹 리스트
+	private Dictionary<EnemyType, List<GameObject>> _enemiesPool; //에네미 매핑 딕셔너리
+	protected override void Awake()
+	{
+		base.Awake();
 
-		enemiesPool = new List<GameObject>[enemiesPrefabs.Length];
-		for (int i = 0; i < enemiesPool.Length; i++)
+		_enemiesPool = new Dictionary<EnemyType, List<GameObject>>(); //딕셔너리 초기화
+		
+		foreach (EnemyPrefab enemyPrefab in enemyPrefabs)
 		{
-			enemiesPool[i] = new List<GameObject>();
+			List<GameObject> pool = new List<GameObject>();
+			
+			for (int i = 0; i < 20; i++) //임의로 20개 풀링
+			{
+				GameObject enemyObj = Instantiate(enemyPrefab.prefab);
+				enemyObj.SetActive(false);
+				pool.Add(enemyObj);
+			}
+			_enemiesPool.Add(enemyPrefab.type,pool);
 		}
 
 	}
@@ -30,37 +45,49 @@ public class EnemyPoolManager : MonoBehaviour
 	private void Start()
 	{
 
-		for (int i = 0; i < 20; i++)
-		{   //일반 에네미들 풀링
-			for (int j = 3; j < enemiesPrefabs.Length; j++)
-			{
-				GameObject enemy = Instantiate(enemiesPrefabs[j], transform);
-				enemy.transform.parent = this.transform;
-				enemy.SetActive(false);
-				enemiesPool[j].Add(enemy);
-			}
-		}
 	}
-	//0~1 에네미
-	public GameObject GetEnemies(int enemyindex)
+
+	public GameObject GetEnemy(EnemyType enemyType)
 	{
 		GameObject selectedEnemy = null;
-		foreach (GameObject enemy in enemiesPool[enemyindex])
+		List<GameObject> enemyList;
+		if (_enemiesPool.TryGetValue(enemyType, out enemyList))
 		{
-			if (!enemy.activeSelf)
+			foreach (var enemy in enemyList)
 			{
-				selectedEnemy = enemy;
-				selectedEnemy.SetActive(true);
-				break;
+				if (!enemy.activeSelf)
+				{
+					selectedEnemy = enemy;
+					selectedEnemy.SetActive(true);
+					break;
+				}
 			}
 		}
-		if (!selectedEnemy)
+		else  //비활성화상태의 에네미가 없는 경우
 		{
-			selectedEnemy = Instantiate(enemiesPrefabs[enemyindex], transform);
-			selectedEnemy.transform.parent = this.transform;
-			enemiesPool[enemyindex].Add(selectedEnemy);
+			enemyList = new List<GameObject>();
+			_enemiesPool.Add(enemyType,enemyList);
 		}
 
+		if (selectedEnemy == null)
+		{
+			selectedEnemy = Instantiate(GetEnemyPrefab(enemyType), transform);
+			selectedEnemy.transform.parent = this.transform;
+			enemyList.Add(selectedEnemy);
+		}
 		return selectedEnemy;
 	}
+	
+	private GameObject GetEnemyPrefab(EnemyType type)
+	{
+		foreach (EnemyPrefab enemyPrefab in enemyPrefabs)
+		{
+			if (enemyPrefab.type == type)
+			{
+				return enemyPrefab.prefab;
+			}
+		}
+		return null;
+	}
+	
 }

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
-  m_Name: ElectricBullet_SkeletonData
+  m_Name: Fx_Thunderbolt_SkeletonData
   m_EditorClassIdentifier: 
   atlasAssets:
-  - {fileID: 11400000, guid: c8194792cb5663149a9f26b3a3ddbccf, type: 2}
-  scale: 0.01
-  skeletonJSON: {fileID: 4900000, guid: 51634336eb1facf4e838043fd4306fd6, type: 3}
+  - {fileID: 11400000, guid: 81a37924c1f75d4428062972e6d9819c, type: 2}
+  scale: 0.003
+  skeletonJSON: {fileID: 4900000, guid: 2bf3acb590e9ab64796037dff55428f4, type: 3}
   isUpgradingBlendModeMaterials: 0
   blendModeMaterials:
     requiresBlendModeMaterials: 0
@@ -28,4 +28,4 @@ MonoBehaviour:
   toAnimation: []
   duration: []
   defaultMix: 0.2
-  controller: {fileID: 0}
+  controller: {fileID: 9100000, guid: 4d013ee2ce7445744a2f919470b73ef2, type: 2}

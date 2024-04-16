@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
-  m_Name: Fx_Thunderbolt_SkeletonData
+  m_Name: green_SkeletonData
   m_EditorClassIdentifier: 
   atlasAssets:
-  - {fileID: 11400000, guid: 81a37924c1f75d4428062972e6d9819c, type: 2}
-  scale: 0.01
-  skeletonJSON: {fileID: 4900000, guid: 2bf3acb590e9ab64796037dff55428f4, type: 3}
+  - {fileID: 11400000, guid: 629d78bdbe1cc844d9cc896754c0772f, type: 2}
+  scale: 0.004
+  skeletonJSON: {fileID: 4900000, guid: 00457cccac96bd34f8aa68f5917bdccc, type: 3}
   isUpgradingBlendModeMaterials: 0
   blendModeMaterials:
     requiresBlendModeMaterials: 0
@@ -28,4 +28,4 @@ MonoBehaviour:
   toAnimation: []
   duration: []
   defaultMix: 0.2
-  controller: {fileID: 0}
+  controller: {fileID: 9100000, guid: fe8b7ec438f7b4f4897eba81521d86f7, type: 2}

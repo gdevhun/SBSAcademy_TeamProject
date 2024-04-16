@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class Reposition : MonoBehaviour
 {
-	private void Start()
-	{
+    private void Start()
+    {
         GameManager.Instance.FindPlayer();
-	}
-	private void OnTriggerExit2D(Collider2D other)
+    }
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Area"))
         {
             return;
         }
-        if (GameManager.Instance?.Player==null)
+        if (GameManager.Instance?.player == null)
         {
             return;
         }
-        Vector3 playerPos = GameManager.Instance.Player.transform.position;
+        Vector3 playerPos = GameManager.Instance.player.transform.position;
         Vector3 myPos = transform.position;
         
         float diffX = Mathf.Abs(playerPos.x - myPos.x);

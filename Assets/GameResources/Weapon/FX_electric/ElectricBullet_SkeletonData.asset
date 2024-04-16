@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
-  m_Name: blackbullet_SkeletonData
+  m_Name: ElectricBullet_SkeletonData
   m_EditorClassIdentifier: 
   atlasAssets:
-  - {fileID: 11400000, guid: 67a33b170e8941b49b026472a1dd79eb, type: 2}
+  - {fileID: 11400000, guid: c8194792cb5663149a9f26b3a3ddbccf, type: 2}
   scale: 0.01
-  skeletonJSON: {fileID: 4900000, guid: 8491b46df9b8ab94a981f739c5c8cfa6, type: 3}
+  skeletonJSON: {fileID: 4900000, guid: 51634336eb1facf4e838043fd4306fd6, type: 3}
   isUpgradingBlendModeMaterials: 0
   blendModeMaterials:
     requiresBlendModeMaterials: 0
@@ -28,4 +28,4 @@ MonoBehaviour:
   toAnimation: []
   duration: []
   defaultMix: 0.2
-  controller: {fileID: 9100000, guid: fb373d888b544f442ba31b6f0436ce84, type: 2}
+  controller: {fileID: 9100000, guid: b07f063cd062f9a43b3149d1c03c4d8c, type: 2}
