@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Charm : WeaponBase
 {
-    [SerializeField] private int damage;
-    
     public override int Damage
     {
         get => damage;

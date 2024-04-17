@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
+    [SerializeField] protected int damage;
     protected Transform PlayerTrans;
     public abstract int Damage
     {

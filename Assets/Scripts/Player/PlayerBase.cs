@@ -62,18 +62,18 @@ public abstract class PlayerBase : MonoBehaviour
 			_spineAnimationState.SetAnimation(0, animationName, loop);
 		}
 	}
-	protected void PlayHitAnimation()
+	private void PlayHitAnimation()
 	{
 		PlayAnimation("hurt", false);
 	}
 
-	protected void PlayDeadAnimation()
+	private void PlayDeadAnimation()
 	{
 		PlayAnimation("die", false);
 	}
 
 
-	protected void OnMove(InputValue value)
+	private void OnMove(InputValue value)
 	{
 		inputVec = value.Get<Vector2>();
 	}
