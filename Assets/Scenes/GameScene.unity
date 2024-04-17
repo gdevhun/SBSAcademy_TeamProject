@@ -14162,7 +14162,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -14224,9 +14224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c111947ee80f835499d8df9695080189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 3
+  playerSpeed: 13
   inputVec: {x: 0, y: 0}
-  skeletonAnimation: {fileID: 0}
 --- !u!1 &1605114642
 GameObject:
   m_ObjectHideFlags: 0
@@ -19324,10 +19323,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green
       objectReference: {fileID: 0}
-    - target: {fileID: 3005733026968363662, guid: f7e44bd03eddef74a94c8be4ed23ef3e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4554593498684731410, guid: f7e44bd03eddef74a94c8be4ed23ef3e, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -19370,14 +19365,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4554593498684731410, guid: f7e44bd03eddef74a94c8be4ed23ef3e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7591877337298530444, guid: f7e44bd03eddef74a94c8be4ed23ef3e, type: 3}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7591877337298530444, guid: f7e44bd03eddef74a94c8be4ed23ef3e, type: 3}
-      propertyPath: m_UseAutoMass
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8350085070648775817, guid: f7e44bd03eddef74a94c8be4ed23ef3e, type: 3}
@@ -19594,14 +19581,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4937522305176046965, guid: 8e10a24a19b60a345bcbb81e1a4052cd, type: 3}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4937522305176046965, guid: 8e10a24a19b60a345bcbb81e1a4052cd, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5924731418970443633, guid: 8e10a24a19b60a345bcbb81e1a4052cd, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -19609,10 +19588,6 @@ PrefabInstance:
     - target: {fileID: 7356380193673499718, guid: 8e10a24a19b60a345bcbb81e1a4052cd, type: 3}
       propertyPath: m_Name
       value: Skull
-      objectReference: {fileID: 0}
-    - target: {fileID: 7356380193673499718, guid: 8e10a24a19b60a345bcbb81e1a4052cd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

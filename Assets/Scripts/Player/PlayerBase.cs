@@ -8,14 +8,14 @@ public abstract class PlayerBase : MonoBehaviour
 	[SerializeField] private float playerSpeed;
 	[SerializeField] private Vector2 inputVec;
 	private Rigidbody2D _rigid;
-	public SkeletonAnimation skeletonAnimation;
+	private SkeletonAnimation _skeletonAnimation;
 	private Spine.AnimationState _spineAnimationState;
 	protected Transform PlayerTrans;
 	protected virtual void Awake()
 	{
-		_rigid = GetComponent<Rigidbody2D>();
-		skeletonAnimation = GetComponentInChildren<SkeletonAnimation>();
-		_spineAnimationState = skeletonAnimation.AnimationState;
+		//_rigid = GetComponent<Rigidbody2D>();
+		_skeletonAnimation = GetComponentInChildren<SkeletonAnimation>();
+		_spineAnimationState = _skeletonAnimation.AnimationState;
 	}
 	protected virtual void Start()
 	{
@@ -49,12 +49,13 @@ public abstract class PlayerBase : MonoBehaviour
 	}
 	protected virtual void FixedUpdate()
 	{
-		Vector2 nextVec = inputVec * playerSpeed * Time.fixedDeltaTime;
-		_rigid.MovePosition(_rigid.position + nextVec);
+		Vector3 nextVec = inputVec * playerSpeed * Time.fixedDeltaTime;
+		transform.position += nextVec * playerSpeed * Time.fixedDeltaTime;
+		//_rigid.MovePosition(_rigid.position + nextVec);
 	}
 	private void PlayAnimation(string animationName, bool loop)
 	{
-		// ÇöÀç Àç»ı ÁßÀÎ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ÀÌ¹Ì ÁöÁ¤µÈ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ¸é Àç»ıÇÏÁö ¾ÊÀ½
+		// í˜„ì¬ ì¬ìƒ ì¤‘ì¸ ì• ë‹ˆë©”ì´ì…˜ì´ ì´ë¯¸ ì§€ì •ëœ ì• ë‹ˆë©”ì´ì…˜ì´ë©´ ì¬ìƒí•˜ì§€ ì•ŠìŒ
 		if (_spineAnimationState.GetCurrent(0) == null || 
 		    _spineAnimationState.GetCurrent(0).Animation.Name != animationName)
 		{

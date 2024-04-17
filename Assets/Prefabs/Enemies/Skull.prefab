@@ -121,7 +121,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: 
+  _animationName: fly
   loop: 1
   timeScale: 1
 --- !u!1 &7356380193673499718
@@ -158,7 +158,7 @@ Transform:
   m_Children:
   - {fileID: 2006553328609234983}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1875928202147129218
 CapsuleCollider2D:
@@ -207,7 +207,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   attackDamage: 0
+  hp: 0
 --- !u!114 &6953240581793956877
 MonoBehaviour:
   m_ObjectHideFlags: 0

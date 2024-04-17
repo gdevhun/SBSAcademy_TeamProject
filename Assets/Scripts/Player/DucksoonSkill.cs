@@ -24,12 +24,12 @@ public class DucksoonSkill : MonoBehaviour
     {
         for (int i = 0; i < rotatingCharmList.Count; i++)
         {
-            // ¸®½ºÆ®¿¡ ÀÖ´Â ¿ÀºêÁ§Æ® Á¢±ÙÇØ¼­ ¼öÁ¤
+            // ë¦¬ìŠ¤íŠ¸ì— ìˆëŠ” ì˜¤ë¸Œì íŠ¸ ì ‘ê·¼í•´ì„œ ìˆ˜ì •
             GameObject rotatingCharm = rotatingCharmList[i];
             rotatingCharm.transform.localPosition = Vector3.zero;
             rotatingCharm.transform.localRotation = Quaternion.identity;
             rotatingCharm.GetComponent<Charm>().Damage = curCharmDmg;
-            // À§Ä¡¿Í È¸Àü ¼³Á¤
+            // ìœ„ì¹˜ì™€ íšŒì „ ì„¤ì •
             float angle = i * 360f / rotatingCharmList.Count;
             rotatingCharm.transform.localPosition = 
                 new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad) * 2f, Mathf.Sin(angle * Mathf.Deg2Rad) * 2f, 0f);
@@ -39,7 +39,7 @@ public class DucksoonSkill : MonoBehaviour
     
     private void AddCharmNum()
     {
-        //ÇÏ³ª¸¦ »ı¼ºÇØ¼­ ¸®½ºÆ®¿¡ ³Ö±â
+        //í•˜ë‚˜ë¥¼ ìƒì„±í•´ì„œ ë¦¬ìŠ¤íŠ¸ì— ë„£ê¸°
         GameObject rotatingCharm = Instantiate(rotatingCharmPrefab, Vector3.zero, Quaternion.identity);
         rotatingCharm.transform.SetParent(this.transform);
         rotatingCharm.GetComponent<Charm>().Damage = curCharmDmg;

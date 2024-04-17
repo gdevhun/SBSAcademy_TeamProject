@@ -121,7 +121,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: 
+  _animationName: idle
   loop: 1
   timeScale: 1
 --- !u!1 &8154161973788716431
@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   attackDamage: 0
+  hp: 0
 --- !u!114 &4920648409369274833
 MonoBehaviour:
   m_ObjectHideFlags: 0
