@@ -6,11 +6,11 @@ using Spine.Unity;
 public abstract class PlayerBase : MonoBehaviour
 {
 	[SerializeField] private float playerSpeed;
-	[SerializeField] private Vector2 inputVec;
-	private Rigidbody2D _rigid;
+	[SerializeField] private Vector3 inputVec;
+	//private Rigidbody2D _rigid;
 	private SkeletonAnimation _skeletonAnimation;
 	private Spine.AnimationState _spineAnimationState;
-	protected Transform PlayerTrans;
+	//Protected Transform PlayerTrans;
 	protected virtual void Awake()
 	{
 		//_rigid = GetComponent<Rigidbody2D>();
@@ -19,7 +19,7 @@ public abstract class PlayerBase : MonoBehaviour
 	}
 	protected virtual void Start()
 	{
-		PlayerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+		//PlayerTrans = GameObject.FindGameObjectWithTag("Player").transform;
 		PlayAnimation("start", false);
 	}
 
@@ -37,7 +37,7 @@ public abstract class PlayerBase : MonoBehaviour
 			}
 		}
 
-		if (inputVec != Vector2.zero)
+		if (inputVec != Vector3.zero)
 		{
 			PlayAnimation("run", true);
 		}
