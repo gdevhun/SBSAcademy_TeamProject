@@ -22,4 +22,3 @@
 <img src="https://img.shields.io/badge/csharp-512BD4?style=for-the-badge&logo=csharp&logoColor=white">
 
 - 유니티(2022.3.3f1)
-- 모바일(Ios,Android) 플랫폼 
